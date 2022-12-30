@@ -1,0 +1,4 @@
+//
+VERSION REACT ROUTER DOM 6.4 trabaja con loader y useloader que reemplaza a useffect para obtener datos y mostrarlos
+
+tambien se usa formData para reemplazar o dejar de utilizar onSubmit o onChange para capturar datos de los formularios usando un ACTION..
