@@ -4,13 +4,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import Layout from "./components/Layout";
 import "./index.css";
-import EditarCliente,{loader as editarClienteLoader} from "./pages/EditarCliente";
+import EditarCliente,{action as editarClienteAction, loader as editarClienteLoader} from "./pages/EditarCliente";
 import Index, { loader as clientesLoader } from "./pages/Index";
 import NuevoCliente, {
   action as nuevoClienteAction,
 } from "./pages/NuevoCliente";
 
+
+
 /* Children hijos del componente Layout que es igual para ttodos */
+/* Con el LOADER TRAEMOS LOS DATOS O INFORMACION Y CON ACTION ejecutamos los cambios */
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,11 +29,14 @@ const router = createBrowserRouter([
         path: "/clientes/nuevo",
         element: <NuevoCliente />,
         action: nuevoClienteAction,
+        errorElement:<ErrorPage/>
       },
       {
         path: "/clientes/:clienteId/editar",
         element: <EditarCliente />,
-        loader:editarClienteLoader
+        loader:editarClienteLoader,
+        action:editarClienteAction,
+        errorElement:<ErrorPage/>
        
       },
     ],
