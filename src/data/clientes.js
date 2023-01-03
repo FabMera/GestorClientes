@@ -45,3 +45,16 @@ export async function actualizarCliente(id, datos) {
     console.log(error);
   }
 }
+
+/* usamos el ID del cliente para eliminarlo a traves de params que captura a traves d ela url el id */
+/* no contiene body ni headers ya que no se ESTA ENVIANDO INFORMACION.. */
+export async function eliminarCliente(id) {
+  try {
+    const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
+      method: "DELETE"
+    });
+    await respuesta.json();
+  } catch (error) {
+    console.log(error);
+  }
+}

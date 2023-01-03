@@ -10,6 +10,7 @@ import NuevoCliente, {
   action as nuevoClienteAction,
 } from "./pages/NuevoCliente";
 
+import {action as eliminarClienteAction} from './components/Cliente'
 
 
 /* Children hijos del componente Layout que es igual para ttodos */
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         errorElement:<ErrorPage/>
        
       },
+      {
+        path:'/clientes/:clienteId/eliminar',
+        action:eliminarClienteAction,
+      }
     ],
   },
 ]);
